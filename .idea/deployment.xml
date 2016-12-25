@@ -5,7 +5,7 @@
       <paths name="kokettekatinka.be">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html/gert/clock" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/public_html/gert/clock" local="$PROJECT_DIR$/www" web="/" />
           </mappings>
         </serverdata>
       </paths>
