@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock</title>
     <link href="https://fonts.googleapis.com/css?family=Khand:600|Russo+One|Voltaire" rel="stylesheet">
     <style>
         body {
             margin: 0;
+            padding: 0;
             background-color: black;
             color: #ffe5c3;
+            font-size: 1rem;
             font-family: 'Russo One', sans-serif;
             font-family: 'Voltaire', sans-serif;
             font-family: 'Khand', sans-serif;
@@ -23,17 +25,30 @@
         #date-and-weather {
             width: 100%;
             text-align: center;
-            font-size: 70px;
+            font-size: 5rem;
             /*color: aliceblue;*/
         }
 
         .time {
-            font-size: 250px;
-            margin-top: -90px;
-            margin-bottom: -192px;
+            font-size: 11rem;
+            margin-top: -3.5rem;
+            margin-bottom: -4.9rem;
         }
         .date {
             text-transform: uppercase;
+        }
+
+        #pills {
+            position: absolute;
+            top: 10rem;
+            left: 10%;
+            width: 80%;
+            padding: 0rem 0px;
+            background-color: #ff6c4e;
+            border-radius: 10rem;
+            font-size: 4rem;
+            text-align: center;
+            color: black;
         }
 
         @font-face {
@@ -121,71 +136,114 @@
     <span class="date"></span> <span class="weather-icon"><i></i></span> <span class="weather-temp"></span>
 </section>
 
-
+<section id="pills" style="display: none">
+    PILLEN
+</section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
+<script src="/socket.io/socket.io.js":></script>
+
 <script>
 //1080*768
-    var lastBlink = false;
 
-    function zetErEenNulVoorAlsHetNodigIs(n) {
-        return n < 10 ? "O" + n : n.toString();
+var lastBlink = false;
+
+var $pills = $("#pills");
+var pillsIid;
+
+function zetErEenNulVoorAlsHetNodigIs(n) {
+    return n < 10 ? "O" + n : n.toString();
+}
+
+function blink() {
+    lastBlink = !lastBlink;
+    if (lastBlink) {
+        return "<span style='color: black'>:</span>"
+    } else {
+        return "<span style='color: #ff6c4e'>:</span>"
     }
 
-    function blink() {
-        lastBlink = !lastBlink;
-        if (lastBlink) {
-            return "<span style='color: black'>:</span>"
-        } else {
-            return "<span style='color: #ff6c4e'>:</span>"
+}
+function minus12(hours) {
+   return (hours > 12) ? hours - 12 : hours
+}
+function updateClock() {
+    var days = ["jan", "feb" , "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    var now = new Date();
+    var html = minus12(now.getHours()) + blink() + zetErEenNulVoorAlsHetNodigIs(now.getMinutes()) ;
+    $(".time").html(html);
+    html = zetErEenNulVoorAlsHetNodigIs(now.getDate()) + " " + days[now.getMonth()] ;
+    $(".date").html(html);
+}
+
+function weather() {
+
+    $.simpleWeather({
+        location: 'Antwerpen, Belgium',
+        woeid: '',
+        unit: 'c',
+        success: function(weather) {
+            html = '<i class="icon-'+weather.code+'"></i>';
+            html += weather.temp+'&deg;'+weather.units.temp+'';
+
+
+            $(".weather-icon i").removeClass().addClass("icon-" + weather.code);
+            $(".weather-temp").html(weather.temp + "&deg;" + weather.units.temp);
+        },
+        error: function(error) {
+            $("#weather").html('<p>'+error+'</p>');
         }
+    });
 
-    }
-    function minus12(hours) {
-       return (hours > 12) ? hours - 12 : hours
-    }
-    function updateClock() {
-        var days = ["jan", "feb" , "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
-        var now = new Date();
-        var html = minus12(now.getHours()) + blink() + zetErEenNulVoorAlsHetNodigIs(now.getMinutes()) ;
-        $(".time").html(html);
-        html = zetErEenNulVoorAlsHetNodigIs(now.getDate()) + " " + days[now.getMonth()] ;
-        $(".date").html(html);
-    }
+}
 
-    function weather() {
+function pills(){
+    $.ajax("saveDate.php?cmd=get&rnd=" + Math.random())
+            .done(function(data) {
+                var serverDate = new Date(data);
+                var difInMinutes = new Date(serverDate.getTime() - new Date().getTime()).getTime()/60000;
+                //$pills.html(difInMinutes);
+                if (difInMinutes < 30) {
+                    if (difInMinutes < 0) {
+                        difInMinutes = 0;
+                    }
+                    clearInterval(pillsIid);
+                    pillsIid = setInterval(togglePillWarning, difInMinutes * 50 + 200);
+                } else {
+                    $pills.hide();
+                }
+            });
 
-        $.simpleWeather({
-            location: 'Antwerpen, Belgium',
-            woeid: '',
-            unit: 'c',
-            success: function(weather) {
-                html = '<i class="icon-'+weather.code+'"></i>';
-                html += weather.temp+'&deg;'+weather.units.temp+'';
+}
 
-
-                $(".weather-icon i").removeClass().addClass("icon-" + weather.code);
-                $(".weather-temp").html(weather.temp + "&deg;" + weather.units.temp);
-            },
-            error: function(error) {
-                $("#weather").html('<p>'+error+'</p>');
-            }
-        });
-
-    }
-
-    function pills(){
-        //if (date)
-    }
+function togglePillWarning() {
+    $pills.toggle();
+}
 
 
+weather();
+setInterval(weather, 1000 * 60 * 10  ); //each 10 minutes
+updateClock();
+setInterval(updateClock, 1000); //each second
+//pills();
+//setInterval(pills, 1000 * 60 * 1); //each minute
 
-    weather();
-    setInterval(weather, 1000 * 60 * 10  );
-    updateClock();
-    setInterval(updateClock, 1000);
+var socket = io();
 
+socket.on('reminders', function(msg){
+    $pills.text(msg);
+    $pills.show();
+    console.log('message: ' + msg);
+});
+
+socket.on('reload', function(msg){
+    window.location.reload();
+});
+
+socket.on('color', function(data){
+    $pills.css("background-color", data);
+});
 
 
 </script>
