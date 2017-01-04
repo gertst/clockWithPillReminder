@@ -40,13 +40,13 @@
 
         #pills {
             position: absolute;
-            top: 10rem;
-            left: 10%;
-            width: 80%;
+            top: 3rem;
+            left: 2%;
+            width: 96%;
             padding: 0rem 0px;
             background-color: #ff6c4e;
-            border-radius: 10rem;
-            font-size: 4rem;
+            border-radius: 4rem;
+            font-size: 10rem;
             text-align: center;
             color: black;
         }
@@ -60,6 +60,18 @@
             url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
             font-weight: normal;
             font-style: normal;
+        }
+
+        .blink_me {
+            animation: blinker 1s linear infinite;
+        }
+
+        @-webkit-keyframes blinker {
+            0%   { opacity: 0; }
+            10%  { opacity: 1; }
+            70%  { opacity: 1; }
+            80%  { opacity: 0; }
+            100% { opacity: 0; }
         }
 
         .icon-0:before { content: ":"; }
@@ -136,7 +148,7 @@
     <span class="date"></span> <span class="weather-icon"><i></i></span> <span class="weather-temp"></span>
 </section>
 
-<section id="pills" style="display: none">
+<section id="pills" style="display: none" class="blink_me">
     PILLEN
 </section>
 
@@ -233,7 +245,11 @@ var socket = io();
 
 socket.on('reminders', function(msg){
     $pills.text(msg);
-    $pills.show();
+    if (msg = "") {
+        $pills.hide();
+    } else {
+        $pills.show();
+    }
     console.log('message: ' + msg);
 });
 
@@ -245,6 +261,9 @@ socket.on('color', function(data){
     $pills.css("background-color", data);
 });
 
+    $pills.on("click", function(){
+        socket.emit("reminders", "");
+    });
 
 </script>
 
