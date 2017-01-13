@@ -1,0 +1,20 @@
+[
+  {
+    "id":"1",
+    "user":"Gert",
+    "label":"Pillen",
+    "color":"#ff6c4e",
+    "triggerDate":"2017/01/13 20:42",
+    "frequency":"daily",
+    "done":"false"
+  },
+  {
+    "id":"2",
+    "user":"Bas",
+    "label":"huiswerk",
+    "color":"red",
+    "triggerDate":"2017/01/13 14:00",
+    "frequency":"once",
+    "done":"false"
+  }
+]
