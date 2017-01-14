@@ -32,15 +32,19 @@ io.on('connection', function(socket_){
 			for (var i in json) {
 				if (json[i].id == socketData.id) {
 					console.log("id " + socketData.id + " found.");
-					json[i].done = "true";
+
 					if (json[i].frequency != "once") {
 						var date = new Date(json[i].triggerDate);
 						if (json[i].frequency == "daily") {
 							date.setDate(date.getDate() + 1);
 						} else if (json[i].frequency == "weekly") {
 							date.setDate(date.getDate() + 7);
+						} else if (json[i].frequency == "hourly") {
+							date.setHours(date.getHours() + 1);
 						}
 						json[i].triggerDate = date.toISOString();
+					} else {
+						json[i].done = "true";
 					}
 					break;
 				}
