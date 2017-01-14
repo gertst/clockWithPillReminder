@@ -12,7 +12,7 @@
     "id":"2",
     "user":"Bas",
     "label":"huiswerk",
-    "color":"red",
+    "color":"#00ffba",
     "triggerDate":"2017/01/13 14:00",
     "frequency":"weekly",
     "done":"false"

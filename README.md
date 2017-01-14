@@ -11,6 +11,10 @@ It's in the living room, as a 'smartclock':
 
 ![alt text](project/IMG_20161217_153426.jpg	 "My living room smartclock")
 
+![alt text](project/Screen Shot 2017-01-14 at 13.43.39.png	 "My living room smartclock")
+
+![alt text](project/Screen Shot 2017-01-14 at 13.44.35.png	 "My living room smartclock")
+
 
 ####Reminders
 A reminder has a label, a username, a color, a triggerDate and a frequency.

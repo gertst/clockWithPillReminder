@@ -77,7 +77,8 @@ function initReminders(){
 		});
 
 	function createReminder(reminderJson) {
-		$("#reminders").append('<li class="reminder blink_me" data-id="' + reminderJson.id + '">' + reminderJson.label + '</li>');
+		$("#reminders").append('' +
+			'<li class="reminder blink_me" data-id="' + reminderJson.id + '" style="background-color:' + reminderJson.color + ';">' + reminderJson.label + '</li>');
 		$(".reminder[data-id='" + reminderJson.id + "']").on("click", function(e){
 			socket.emit("reminder", {task: "hide", id: $(e.currentTarget).data("id")});
 		});
