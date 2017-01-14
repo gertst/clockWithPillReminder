@@ -35,7 +35,7 @@ This is used to
 - send messages over socket from the server (nodejs) to all the clients: to update the reminders.
 - send messages over socket from a client to resume active reminder popups.
 
-##Wunderlist API
+##Reminders storage
 Wunderlist was first used to maintain the reminders.
 But then I was stuck with the socket features that the API has: I never achieved to have it running. Documentation is unexisting, so I had to abandon this idea and replace it with my own reminder 'database'.
 The result is a *very* simple method: reading/writing to a json file ;-)
