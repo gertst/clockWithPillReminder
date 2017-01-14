@@ -130,3 +130,8 @@ addEventListener("click", function() {
 	rfs.call(el);
 });
 */
+
+//reload all clients on click
+addEventListener("click", function() {
+	socket.emit("reload", "")
+});

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8e2425f-7606-4632-a484-81a9bf53328c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/public/js/main.js" afterPath="$PROJECT_DIR$/www/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/public/reminders.json" afterPath="$PROJECT_DIR$/www/public/reminders.json" />
     </list>
     <ignored path="clockWithPillReminder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -79,16 +76,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="129" selection-start-line="80" selection-start-column="129" selection-end-line="80" selection-end-column="129" />
+            <state vertical-scroll-proportion="0.7883065">
+              <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
-                <marker date="1484398409000" expanded="true" signature="259:271" placeholder="..." />
-                <marker date="1484398409000" expanded="true" signature="316:330" placeholder="..." />
-                <marker date="1484398409000" expanded="true" signature="1998:2042" placeholder="..." />
+                <marker date="1484398771000" expanded="true" signature="259:271" placeholder="..." />
+                <marker date="1484398771000" expanded="true" signature="316:330" placeholder="..." />
+                <marker date="1484398771000" expanded="true" signature="1998:2042" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -123,8 +120,8 @@
         <option value="$PROJECT_DIR$/www/public/index.html" />
         <option value="$PROJECT_DIR$/www/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/www/public/js/main.js" />
         <option value="$PROJECT_DIR$/www/public/reminders.json" />
+        <option value="$PROJECT_DIR$/www/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -474,9 +471,9 @@
           <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
-            <marker date="1484398409000" expanded="true" signature="259:271" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="316:330" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="1998:2042" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="259:271" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="316:330" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="1998:2042" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -535,9 +532,9 @@
           <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
-            <marker date="1484398409000" expanded="true" signature="259:271" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="316:330" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="1998:2042" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="259:271" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="316:330" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="1998:2042" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -726,19 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="129" selection-start-line="80" selection-start-column="129" selection-end-line="80" selection-end-column="129" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-            <marker date="1484398409000" expanded="true" signature="259:271" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="316:330" placeholder="..." />
-            <marker date="1484398409000" expanded="true" signature="1998:2042" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/public/reminders.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.75">
@@ -770,6 +754,19 @@
         <state vertical-scroll-proportion="0.06637168">
           <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7883065">
+          <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <marker date="1484398771000" expanded="true" signature="259:271" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="316:330" placeholder="..." />
+            <marker date="1484398771000" expanded="true" signature="1998:2042" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
