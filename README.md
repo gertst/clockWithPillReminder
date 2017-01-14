@@ -62,7 +62,9 @@ Here's an example:
    }
  ]
  ```
-
+For now I have to manually add new reminders in the file, but of what I really need is a good UI to edit it from the clock.
+Or may be I still try to implement an existing Tasks app with a good API. Too bad Google Keep does not release its API.
+Any ideas are welcome!
 
 ##set up globally accessible domain for the PI
 - at https://my.noip.com, make an account for a dynDNS. This will link a domain to the router
