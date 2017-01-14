@@ -4,7 +4,7 @@
     "user":"Gert",
     "label":"Pillen",
     "color":"#ff6c4e",
-    "triggerDate":"2017/01/13 20:42",
+    "triggerDate":"2017/01/13 19:00",
     "frequency":"daily",
     "done":"false"
   },
@@ -14,7 +14,7 @@
     "label":"huiswerk",
     "color":"red",
     "triggerDate":"2017/01/13 14:00",
-    "frequency":"once",
+    "frequency":"weekly", 
     "done":"false"
   }
 ]
