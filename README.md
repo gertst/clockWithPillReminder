@@ -41,7 +41,7 @@ This is used to
 
 ##Reminders storage
 Wunderlist was first used to maintain the reminders.
-But then I was stuck with the socket features that the API has: I never achieved to have it running. Documentation is unexisting, so I had to abandon this idea and replace it with my own reminder 'database'.
+But then I was stuck with the socket features of the API: I never achieved to have it running. Documentation is non-existing, so I had to abandon this idea and replace it with my own reminder 'database'.
 The result is a *very* simple method: reading/writing to a json file ;-)
 Here's an example:
 ```
@@ -66,16 +66,19 @@ Here's an example:
    }
  ]
  ```
-For now I have to manually add new reminders in the file, but of what I really need is a good UI to edit it from the clock.
+For now I have to manually add new reminders in the file. Of course I really need a good UI to edit it from the clock.
 Or may be I still try to implement an existing Tasks app with a good API. Too bad Google Keep does not release its API.
-Any ideas are welcome!
+Any ideas are welcome! A dedicated Google Calendar may be a good alternative?
 
-##set up globally accessible domain for the PI
+##How to Set up a globally accessible domain for the PI?
+The client on the clock can run on the local (static) IP of the PI, but for the client on my phone I wanted a globally accesssable domain.
+After some digging I found noIP to be a good service. My TP-link router has build in support for no-IP, so this was a no-brainer.
+Here's how to set it up:
 - at https://my.noip.com, make an account for a dynDNS. This will link a domain to the router
 - on the TP-link router:
   * Forwarding > DMZ : add local ip address of the PI
   * Dynamic DNS: fill in account credentials for www.no-ip.com
-- on the telenet router (mijn.telenet.be):
+- on the router of the internet provider (Telenet)  (mijn.telenet.be):
   * Wireless modem > Geavanceerde instellingen > IPv4 Firewall & Port forwarding > DMZ adres: add address of TP-link router: 192.168.0.171
   * PORT FORWARDING: 171 for begin and end port 3000
-
+- It works! ;-)
