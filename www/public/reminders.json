@@ -13,8 +13,8 @@
     "user":"Bas",
     "label":"huiswerk",
     "color":"#00ffba",
-    "triggerDate":"2017/01/13 14:00",
-    "frequency":"weekly",
+    "triggerDate":"2017/01/13 18:00",
+    "frequency":"daily",
     "done":"false"
   }
 ]
