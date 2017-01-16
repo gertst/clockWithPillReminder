@@ -4,6 +4,14 @@ html, body {
     padding: 0;
 }
 
+
+section > button#btn1, section > button#btn2 {
+    position: absolute;
+    z-index: 99;
+    top: 58px;
+    right: 18px;
+}
+
 .mdl-layout__header-row {
     padding-left: 40px;
 }
@@ -43,6 +51,7 @@ html, body {
     top: 36px;
     z-index: 999;
 }
+
 
 section > .section__play-btn {
     min-height: 200px;
@@ -145,9 +154,3 @@ main > .mdl-layout__tab-panel {
     z-index: 99;
 }
 
-button.right-menu {
-    position: absolute;
-    z-index: 99;
-    top: 60px;
-    right: 20px;
-}
