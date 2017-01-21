@@ -124,12 +124,12 @@ setInterval(function() {
 
 //make full screen on click
 /*
-addEventListener("click", function() {
-	var el = document.documentElement;
-	var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen;
-	rfs.call(el);
-});
-*/
+ addEventListener("click", function() {
+ var el = document.documentElement;
+ var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen;
+ rfs.call(el);
+ });
+ */
 
 //reload all clients on click
 addEventListener("click", function() {
