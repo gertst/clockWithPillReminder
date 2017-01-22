@@ -2,6 +2,5 @@
   "short_name": "Clock",
   "name": "Fullscreen clock with Reminders",
   "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "landscape"
+  "display": "standalone"
 }

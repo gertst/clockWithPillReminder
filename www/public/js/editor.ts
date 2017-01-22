@@ -13,8 +13,8 @@ class Editor {
 
     constructor ($body: string) {
         this._$body = $body;
-        this._$tabContentPassed = $("#fixed-tab-passed");
-        this._$tabContentUpcoming = $("#fixed-tab-upcoming");
+        this._$tabContentPassed = $("#fixed-tab-passed > .page-content");
+        this._$tabContentUpcoming = $("#fixed-tab-upcoming > .page-content");
         this.reminders = [];
 
         this.getReminderData("reminders.json");

@@ -4,7 +4,7 @@
     "user": "Gert",
     "label": "Pillen",
     "color": "#ff6c4e",
-    "triggerDate": "2017-01-20T18:00:00.000Z",
+    "triggerDate": "2017-01-23T18:00:00.000Z",
     "frequency": "daily",
     "done": "false"
   },
@@ -24,6 +24,6 @@
     "color": "#00ffba",
     "triggerDate": "2017/01/21 8:00",
     "frequency": "once",
-    "done": "false"
+    "done": "true"
   }
 ]
