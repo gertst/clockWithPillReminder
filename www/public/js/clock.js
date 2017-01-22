@@ -64,7 +64,7 @@ function initReminders(){
 				if (triggerDate.getTime() <= new Date().getTime() && fullJson[i].done != "true") {
 					createReminder(fullJson[i]);
 				} else {
-					if (triggerDate.getTime() > new Date().getTime() && fullJson[i].done == "false") {
+					if (triggerDate.getTime() > new Date().getTime() && fullJson[i].done != "true") {
 						//plan event
 						var delay = triggerDate.getTime() - new Date().getTime();
 						setTimeout(function() {

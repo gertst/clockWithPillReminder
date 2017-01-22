@@ -1,20 +1,29 @@
 [
   {
-    "id":"1",
-    "user":"Gert",
-    "label":"Pillen",
-    "color":"#ff6c4e",
-    "triggerDate":"2017/01/13 19:00",
-    "frequency":"daily",
-    "done":"false"
+    "id": "1",
+    "user": "Gert",
+    "label": "Pillen",
+    "color": "#ff6c4e",
+    "triggerDate": "2017-01-20T18:00:00.000Z",
+    "frequency": "daily",
+    "done": "false"
   },
   {
-    "id":"2",
-    "user":"Bas",
-    "label":"huiswerk",
-    "color":"#00ffba",
-    "triggerDate":"2017/01/13 18:00",
-    "frequency":"daily",
-    "done":"false"
+    "id": "2",
+    "user": "Bas",
+    "label": "huiswerk",
+    "color": "#00ffba",
+    "triggerDate": "2017-01-21T17:00:00.000Z",
+    "frequency": "daily",
+    "done": "false"
+  },
+  {
+    "id": "3",
+    "user": "none",
+    "label": "croissants",
+    "color": "#00ffba",
+    "triggerDate": "2017/01/21 8:00",
+    "frequency": "once",
+    "done": "false"
   }
 ]

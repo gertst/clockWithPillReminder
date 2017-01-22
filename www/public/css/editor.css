@@ -4,153 +4,78 @@ html, body {
     padding: 0;
 }
 
+.reminder {
 
-section > button#btn1, section > button#btn2 {
-    position: absolute;
-    z-index: 99;
-    top: 58px;
-    right: 18px;
 }
 
-.mdl-layout__header-row {
-    padding-left: 40px;
+.reminder-card.mdl-card {
+    padding-top: 20px;
+    margin: auto;
+    width: inherit;
+    margin: 30px 3% 3% 3%;
+    background: #6bc5fa;
+    color: white;
+}
+.reminder-card > .mdl-card__actions {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-.mdl-layout.is-small-screen .mdl-layout__header-row h3 {
-    font-size: inherit;
+.reminder-card > .mdl-card__label {
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 2.6rem;
+    font-weight: 200;
 }
-.mdl-layout__tab-bar-button {
+
+.mdl-card__user {
+    position: relative;
+    z-index: 30;
+    top: 43px;
+    width: 100%;
+    display: flex;
+}
+
+
+.mdl-card__user .mdl-chip__action {
     display: none;
 }
 
-.mdl-layout .mdl-layout__tab-bar,
-.mdl-layout .mdl-layout__tab-bar-container {
-    overflow: visible;
-}
-.mdl-layout__tab-bar-container {
-    height: 64px;
-}
-.mdl-layout__tab-bar {
-    padding: 0;
-    padding-left: 16px;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-}
-.mdl-layout__tab-bar .mdl-layout__tab {
-    height: 64px;
-    line-height: 64px;
-}
-.mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
-    background-color: white;
-    height: 4px;
-}
-#add {
-    position: absolute;
-    right: 40px;
-    top: 36px;
-    z-index: 999;
+.mdl-chip.mdl-chip--contact.user{
+    margin: auto;
+    background-color: rgb(216, 225, 230);
 }
 
-
-section > .section__play-btn {
-    min-height: 200px;
+.reminder-card > .mdl-card__frequency {
+    justify-content: center;
+    margin: 5px auto 20px;
+    background-color: rgb(216, 225, 230);
 }
 
-section .section__circle {
-    display: -webkit-flex;
-    display: -ms-flexbox;
+.reminder-card .mdl-card__date {
+    justify-content: center;
+    margin: 12px auto;
+}
+
+.reminder-card .mdl-card__date .part-date {
+    color: #305a73;
+    font-size: 1.5rem;
+}
+
+.reminder-card > .mdl-card__actions {
     display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
+    box-sizing:border-box;
     align-items: center;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-flex-grow: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-flex-shrink: 1;
-    -ms-flex-negative: 1;
-    flex-shrink: 1;
 }
-section .section__text {
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    padding-top: 8px;
+.reminder-card > .mdl-card__actions > .material-icons {
+    padding-right: 10px;
 }
-section .section__text h5 {
-    font-size: inherit;
-    margin: 0;
-    margin-bottom: 0.5em;
-}
-section .section__text a {
-    text-decoration: none;
-}
-section .section__circle-container > .section__circle-container__circle {
-    width: 64px;
-    height: 64px;
-    border-radius: 32px;
-    margin: 8px 0;
+.reminder-card > .mdl-card__title,
+.reminder-card > .mdl-card__actions,
+.reminder-card > .mdl-card__actions > .mdl-button {
+    color: #fff;
 }
 
-#upcoming section {
-    margin-bottom: 72px;
-}
-#upcoming h4, #upcoming h5 {
-    margin-bottom: 16px;
-}
-section.section--center .section__text:not(:last-child) {
-    border-bottom: 1px solid rgba(0,0,0,.13);
-}
-main > .mdl-layout__tab-panel {
-    padding: 8px;
-    padding-top: 48px;
-}
 
-.mdl-card {
-    height: auto;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+.icon-space {
+    margin-left: 6px;
 }
-
-.mdl-card .mdl-card__supporting-text {
-    margin: 40px;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    padding: 0;
-    color: inherit;
-    width: calc(100% - 80px);
-}
-.mdl-card > * {
-    height: auto;
-}
-
-.mdl-card__actions a {
-    color: #00BCD4;
-    margin: 0;
-}
-.mdl-card__supporting-text + .mdl-card__actions {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-.mdl-card__actions {
-    margin: 0;
-    padding: 4px 40px;
-    color: inherit;
-}
-.mdl-card > * {
-    height: auto;
-}
-.mdl-menu__container {
-    z-index: 99;
-}
-
