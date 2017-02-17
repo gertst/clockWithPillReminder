@@ -4,7 +4,7 @@
     "user": "Gert",
     "label": "Pillen",
     "color": "#ff6c4e",
-    "triggerDate": "2017-01-23T18:00:00.000Z",
+    "triggerDate": "2017-01-24T18:00:00.000Z",
     "frequency": "daily",
     "done": "false"
   },
@@ -13,17 +13,17 @@
     "user": "Bas",
     "label": "huiswerk",
     "color": "#00ffba",
-    "triggerDate": "2017-01-21T17:00:00.000Z",
+    "triggerDate": "2017-01-24T17:00:00.000Z",
     "frequency": "daily",
     "done": "false"
   },
   {
     "id": "3",
-    "user": "none",
-    "label": "croissants",
-    "color": "#00ffba",
-    "triggerDate": "2017/01/21 8:00",
-    "frequency": "once",
-    "done": "true"
+    "user": "Astrid",
+    "label": "testje",
+    "color": "pink",
+    "triggerDate": "2017/01/23 8:00",
+    "frequency": "weekly",
+    "done": "false"
   }
 ]

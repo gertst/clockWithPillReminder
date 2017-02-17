@@ -21,6 +21,7 @@ class Reminder {
     public frequency:Frequency;
     public done:boolean;
     private locale:string = "nl-BE";
+    private socket;
 
     /**
      * {
@@ -35,7 +36,8 @@ class Reminder {
      * @param reminderJson
      */
 
-    constructor (reminderJson:json) {
+    constructor (socket, reminderJson:json) {
+        this.socket = socket;
         this.id = reminderJson.id;
         this.user = reminderJson.user;
         this.label = reminderJson.label;
@@ -43,18 +45,39 @@ class Reminder {
         this.triggerDate = new Date(reminderJson.triggerDate);
         this.frequency = reminderJson.frequency;
         this.done = (reminderJson.done == 'true');
+        if (!this.done) {
+            if (this.triggerDate.getTime() <= new Date().getTime()) {
+                setTimeout(() => {
+                    this.createReminder();
+                }, 1000);
+            } else {
+                if (this.triggerDate.getTime() > new Date().getTime()) {
+                    //plan event
+                    let delay:number = this.triggerDate.getTime() - new Date().getTime();
+                    setTimeout(() => {
+                        this.createReminder();
+                    }, delay);
+                }
+            }
+
+        }
 
     }
 
-    public get isActive():bool {
-        return  (this.triggerDate.getTime() > new Date().getTime() && this.done != "true");
+    public createReminder():void {
+        $("#reminder-" + this.id).find(".btn-dismiss").removeClass("hide");
+        $("#reminder-" + this.id).find(".reminder-card").addClass("triggered");
+    }
+
+    public get isPassed():bool {
+        return  (this.triggerDate.getTime() < new Date().getTime() && this.done);
     }
 
     public toHtml():string {
         let template = $('#templateReminder').html();
         Mustache.parse(template);   // optional, speeds up future uses
+        setTimeout(() => {this.init()}, 100);
         return Mustache.render(template, this);
-
     }
 
     public userLower():string {
@@ -121,6 +144,16 @@ class Reminder {
         return (this.user != "none");
     }
 
-    public
 
+    public init():void {
+        //bind dismiss btn
+        $("#reminder-" + this.id).find(".btn-dismiss").on("click", () => {this.onDismissClicked()});
+
+    }
+
+    private onDismissClicked():void {
+        this.socket.emit("reminder", {task: "hide", id: this.id});
+        $("#reminder-" + this.id).find(".btn-dismiss").addClass("hide");
+        $("#reminder-" + this.id).find(".reminder-card").removeClass("triggered");
+    }
 }

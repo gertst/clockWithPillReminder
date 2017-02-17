@@ -24,8 +24,10 @@ var Reminder = (function () {
       }
      * @param reminderJson
      */
-    function Reminder(reminderJson) {
+    function Reminder(socket, reminderJson) {
+        var _this = this;
         this.locale = "nl-BE";
+        this.socket = socket;
         this.id = reminderJson.id;
         this.user = reminderJson.user;
         this.label = reminderJson.label;
@@ -33,17 +35,39 @@ var Reminder = (function () {
         this.triggerDate = new Date(reminderJson.triggerDate);
         this.frequency = reminderJson.frequency;
         this.done = (reminderJson.done == 'true');
+        if (!this.done) {
+            if (this.triggerDate.getTime() <= new Date().getTime()) {
+                setTimeout(function () {
+                    _this.createReminder();
+                }, 1000);
+            }
+            else {
+                if (this.triggerDate.getTime() > new Date().getTime()) {
+                    //plan event
+                    var delay = this.triggerDate.getTime() - new Date().getTime();
+                    setTimeout(function () {
+                        _this.createReminder();
+                    }, delay);
+                }
+            }
+        }
     }
-    Object.defineProperty(Reminder.prototype, "isActive", {
+    Reminder.prototype.createReminder = function () {
+        $("#reminder-" + this.id).find(".btn-dismiss").removeClass("hide");
+        $("#reminder-" + this.id).find(".reminder-card").addClass("triggered");
+    };
+    Object.defineProperty(Reminder.prototype, "isPassed", {
         get: function () {
-            return (this.triggerDate.getTime() > new Date().getTime() && this.done != "true");
+            return (this.triggerDate.getTime() < new Date().getTime() && this.done);
         },
         enumerable: true,
         configurable: true
     });
     Reminder.prototype.toHtml = function () {
+        var _this = this;
         var template = $('#templateReminder').html();
         Mustache.parse(template); // optional, speeds up future uses
+        setTimeout(function () { _this.init(); }, 100);
         return Mustache.render(template, this);
     };
     Reminder.prototype.userLower = function () {
@@ -99,6 +123,16 @@ var Reminder = (function () {
     };
     Reminder.prototype.userExists = function () {
         return (this.user != "none");
+    };
+    Reminder.prototype.init = function () {
+        var _this = this;
+        //bind dismiss btn
+        $("#reminder-" + this.id).find(".btn-dismiss").on("click", function () { _this.onDismissClicked(); });
+    };
+    Reminder.prototype.onDismissClicked = function () {
+        this.socket.emit("reminder", { task: "hide", id: this.id });
+        $("#reminder-" + this.id).find(".btn-dismiss").addClass("hide");
+        $("#reminder-" + this.id).find(".reminder-card").removeClass("triggered");
     };
     return Reminder;
 })();

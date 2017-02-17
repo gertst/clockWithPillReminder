@@ -84,3 +84,18 @@ html, body {
 .icon-space {
     margin-left: 6px;
 }
+
+.hide {
+    display: none;
+}
+
+.triggered {
+    animation:bg-anim 1s infinite;
+}
+
+@-webkit-keyframes bg-anim /* Safari and Chrome */
+{
+    0%   {background:#6bc5fa;}
+    50%  {background: #fa657e;}
+    100%   {background:#6bc5fa;}
+}

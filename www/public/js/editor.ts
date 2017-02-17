@@ -10,6 +10,7 @@ class Editor {
     private _$tabContentPassed: JQuery;
     private _$tabContentUpcoming: JQuery;
     public reminders:Reminder[];
+    public socket;
 
     constructor ($body: string) {
         this._$body = $body;
@@ -18,6 +19,21 @@ class Editor {
         this.reminders = [];
 
         this.getReminderData("reminders.json");
+
+        //init socket
+        this.socket = io();
+
+        this.socket.on('reminder', (data) => function(data){
+            if (data.task == "hide") {
+                document.reload();
+                //alert('hide id' + data.id);
+               // $reminders.find(".reminder[data-id='" + data.id + "']").remove();
+            }
+        });
+
+        this.socket.on('reload', function(msg){
+            window.location.reload();
+        });
 
     }
 
@@ -30,11 +46,17 @@ class Editor {
     private onJsonLoaded(remindersArray:array):void {
         let passedHtml:string = "";
         let upcomingHtml:string = "";
+        let lastDate:Date = new Date("1970/1/1");
         for (let reminderJson of remindersArray) {
-            let reminder:Reminder = new Reminder(reminderJson)
+            let reminder:Reminder = new Reminder(this.socket, reminderJson)
             this.reminders.push(reminder);
-            if (reminder.isActive) {
-                upcomingHtml += reminder.toHtml();
+            if (!reminder.isPassed) {
+                if (lastDate.getTime() > reminder.triggerDate.getTime()) {
+                    upcomingHtml = reminder.toHtml() + upcomingHtml;
+                } else {
+                    upcomingHtml = upcomingHtml + reminder.toHtml();
+                }
+                lastDate = reminder.triggerDate;
             } else {
                 passedHtml += reminder.toHtml();
             }
